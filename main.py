@@ -9,7 +9,7 @@ import os
 def hello_http(request):
 
 
-    process = CrawlerProcess()
+    process = CrawlerProcess(get_project_settings())
     process.crawl(AfajofSpider)
     process.start()
 
