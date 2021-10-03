@@ -13,7 +13,7 @@ def hello_http(request):
     e = 'touch temp'
     subprocess.run(e, stdout=subprocess.PIPE, shell=True)
 
-    c = 'gsutil cp $HOME/scrapy-cloud-function-python/conferenceCalendar/temp gs://afajof_calendar'
+    c = 'gsutil cp $HOME/scrapy-cloud-function-python/temp gs://afajof_calendar'
 
     #print(os.environ['HOME'])
 
