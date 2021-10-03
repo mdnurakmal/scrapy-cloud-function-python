@@ -9,13 +9,16 @@ import os
 def hello_http(request):
 
 
-    # process = CrawlerProcess()
-    # process.crawl(AfajofSpider)
-    # process.start()
+    process = CrawlerProcess()
+    process.crawl(AfajofSpider)
+    process.start()
 
     now = datetime.now().strftime("%m%d%Y_%H%M%S")
 
     subprocess.call(["touch", "temp-"+now])
+
+     subprocess.call(["mv", "$HOME/scrapy-cloud-function-python/afajof_calendar.xlsx","$HOME/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+
 
     os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now))
 
