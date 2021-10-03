@@ -3,7 +3,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from flask import escape
 import subprocess
-
+import os
 def hello_http(request):
 
 
@@ -13,10 +13,10 @@ def hello_http(request):
 
     # c = 'gsutil cp /conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
 
-    print("hello")
+    print(os.environ['HOME'])
 
-    c = 'echo $HOME'
-    subprocess.run(c, stdout=subprocess.PIPE, shell=True)
+
+    #subprocess.run(c, stdout=subprocess.PIPE, shell=True)
 
     return 'Hello {}!'.format(escape("Word"))
 
