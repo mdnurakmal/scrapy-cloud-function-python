@@ -24,3 +24,5 @@ def hello_http(request):
     return 'Hello {}!'.format(escape("Word"))
 
 
+if __name__ == "__main__":
+    hello_http(None)
