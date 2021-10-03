@@ -11,7 +11,7 @@ from multiprocessing import Process, Queue
 
 
 def hello_http(request):
-    def script(queue):
+    def script(queue,return_dict):
         try:
             settings = get_project_settings()
             settings.setdict({
@@ -28,7 +28,7 @@ def hello_http(request):
 
             subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
-
+            return_dict["filename"]=home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"
             os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
 
             queue.put(None)
@@ -37,8 +37,9 @@ def hello_http(request):
 
     queue = Queue()
     # wrap the spider in a child process
-
-    main_process = Process(target=script, args=(queue,))
+    manager = multiprocessing.Manager()
+    return_dict = manager.dict()
+    main_process = Process(target=script, args=(queue,return_dict))
     main_process.start() # start the process
     main_process.join() # block until the spider finishes
     result = queue.get() # check the process did not return an error
@@ -46,7 +47,7 @@ def hello_http(request):
     if result is not None:
         raise result
 
-    return 'ok'
+    return 'ok' + return_dict.values()
 
 
 
