@@ -7,16 +7,16 @@ import os
 def hello_http(request):
 
 
-    # process = CrawlerProcess()
-    # process.crawl(AfajofSpider)
-    # process.start()
+    process = CrawlerProcess()
+    process.crawl(AfajofSpider)
+    process.start()
 
-    # c = 'gsutil cp /conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
+     c = 'gsutil cp $HOME/conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
 
-    print(os.environ['HOME'])
+    #print(os.environ['HOME'])
 
 
-    #subprocess.run(c, stdout=subprocess.PIPE, shell=True)
+    subprocess.run(c, stdout=subprocess.PIPE, shell=True)
 
     return 'Hello {}!'.format(escape("Word"))
 
