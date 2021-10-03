@@ -14,11 +14,10 @@ def hello_http(request):
     # process.start()
 
     now = datetime.now()
-    e = 'touch ' + shlex.quote(now)
-    subprocess.run(e, stdout=subprocess.PIPE, shell=True)
-    c = 'gsutil cp $HOME/scrapy-cloud-function-python/afajof_calendar.xlsx gs://afajof_calendar'
 
-    subprocess.run(c, stdout=subprocess.PIPE, shell=True)
+    subprocess.call(["touch", "temp-", now])
+
+    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now))
 
     return 'Hello {}!'.format(escape("Word"))
 
