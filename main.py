@@ -10,7 +10,7 @@ import os
 from multiprocessing import Process, Queue
 
 
-def hello_http(event, context):
+def hello_http(request):
     def script(queue):
         try:
             settings = get_project_settings()
