@@ -18,7 +18,7 @@ def hello_http(request):
     subprocess.call(["mv", os.environ['HOME']+"/scrapy-cloud-function-python/afajof_calendar.xlsx",os.environ['HOME']+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
 
-    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now))
+    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
 
     return 'Hello {}!'.format(escape("Word"))
 
