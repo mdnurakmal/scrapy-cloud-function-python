@@ -1,7 +1,7 @@
 from conferenceCalendar.spiders.afajofspiders import AfajofSpider
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from flask import escape
+
 from datetime import datetime
 import shlex 
 import subprocess
