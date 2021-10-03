@@ -12,7 +12,7 @@ def hello_http(request):
     # process = CrawlerProcess()
     # process.crawl(AfajofSpider)
     # process.start()
-   subprocess.call(["touch", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"])
+    subprocess.call(["touch", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"])
 
     now = datetime.now().strftime("%m%d%Y_%H%M%S")
     home = os.environ['HOME']
