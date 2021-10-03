@@ -1,2 +1,2 @@
-scrapy
-scrapy-xlsx
+scrapy==2.5.0
+scrapy-xlsx==0.1.1
