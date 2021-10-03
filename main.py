@@ -6,12 +6,8 @@ import subprocess
 
 def hello_http(request):
 
-    settings = get_project_settings()
-    settings.setdict({
-        'LOG_LEVEL': 'ERROR',
-        'LOG_ENABLED': True,
-    })
-    process = CrawlerProcess(settings)
+
+    process = CrawlerProcess()
     process.crawl(AfajofSpider)
     process.start()
 
