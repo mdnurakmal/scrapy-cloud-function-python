@@ -7,11 +7,13 @@ import os
 def hello_http(request):
 
 
-    process = CrawlerProcess()
-    process.crawl(AfajofSpider)
-    process.start()
+    # process = CrawlerProcess()
+    # process.crawl(AfajofSpider)
+    # process.start()
+    e = 'touch temp'
+    subprocess.run(e, stdout=subprocess.PIPE, shell=True)
 
-    c = 'gsutil cp $HOME/conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
+    c = 'gsutil cp $HOME/scrapy-cloud-function-python/conferenceCalendar/temp gs://afajof_calendar'
 
     #print(os.environ['HOME'])
 
