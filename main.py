@@ -1,4 +1,4 @@
-import scrapy
+
 from conferenceCalendar.spiders.afajofspiders import AfajofSpider
 from multiprocessing import Process, Queue
 from scrapy.crawler import CrawlerProcess
