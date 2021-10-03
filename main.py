@@ -11,7 +11,7 @@ def hello_http(request):
     process.crawl(AfajofSpider)
     process.start()
 
-    c = 'gsutil cp $HOME/scrapy-cloud-function-python/conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
+    c = 'gsutil cp $HOME/scrapy-cloud-function-python/afajof_calendar.xlsx gs://afajof_calendar'
 
     subprocess.run(c, stdout=subprocess.PIPE, shell=True)
 
