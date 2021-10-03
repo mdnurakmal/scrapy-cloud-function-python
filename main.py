@@ -15,7 +15,7 @@ def hello_http(request):
 
     now = datetime.now().strftime("%m%d%Y_%H%M%S")
 
-    subprocess.call(["touch", "temp-", now])
+    subprocess.call(["touch", "temp-"+now])
 
     os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now))
 
