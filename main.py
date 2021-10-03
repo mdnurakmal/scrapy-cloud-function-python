@@ -17,6 +17,7 @@ def hello_http(request):
 
     c = 'gsutil cp /conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
 
+    print("hello")
 
     subprocess.run(c, stdout=subprocess.PIPE, shell=True)
 
