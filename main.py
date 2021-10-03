@@ -13,7 +13,7 @@ def hello_http(request):
     # process.crawl(AfajofSpider)
     # process.start()
 
-    now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+    now = datetime.now().strftime("%m%d%Y_%H%M%S")
 
     subprocess.call(["touch", "temp-", now])
 
