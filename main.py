@@ -49,3 +49,9 @@ def hello_http(event, context):
         raise result
 
     return 'ok'
+
+
+
+if __name__ == "__main__":
+    hello_http(None,None)
+
