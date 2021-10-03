@@ -8,9 +8,7 @@ import subprocess
 import os
 
 from multiprocessing import Process, Queue
-from ... import MySpider
-from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
+
 
 def hello_http(event, context):
     def script(queue):
@@ -21,7 +19,7 @@ def hello_http(event, context):
             'LOG_ENABLED': True,
             })
             process = CrawlerProcess(settings)
-            process.crawl(MySpider)
+            process.crawl(AfajofSpider)
             process.start()
 
             
