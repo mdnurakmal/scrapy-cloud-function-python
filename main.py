@@ -14,13 +14,13 @@ def hello_http(request):
     process.start()
 
 
-    # now = datetime.now().strftime("%m%d%Y_%H%M%S")
-    # home = os.environ['HOME']
-    # #subprocess.call(["touch", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"])
-    # subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+    now = datetime.now().strftime("%m%d%Y_%H%M%S")
+    home = os.environ['HOME']
+
+    subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
 
-    # os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
+    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
 
     return 'Hello {}!'.format(escape("Word"))
 
