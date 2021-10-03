@@ -28,7 +28,7 @@ def hello_http(request):
 
             subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
-            return_dict["filename"]=home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"
+            return_dict["filename"]="temp-"+now+".xlsx"
             os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
 
             queue.put(None)
@@ -47,7 +47,7 @@ def hello_http(request):
     if result is not None:
         raise result
 
-    return 'ok' + return_dict.values()
+    return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
 
 
