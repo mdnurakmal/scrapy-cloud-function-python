@@ -8,7 +8,7 @@ import subprocess
 import os
 
 from multiprocessing import Process, Queue
-
+import multiprocessing
 
 def hello_http(request):
     def script(queue,return_dict):
