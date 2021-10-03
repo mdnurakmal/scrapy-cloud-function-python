@@ -11,11 +11,11 @@ def hello_http(request):
     process.crawl(AfajofSpider)
     process.start()
 
-    # c = 'gsutil cp /conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
+    c = 'gsutil cp /conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
 
-    # print("hello")
+    print("hello")
 
-    # subprocess.run(c, stdout=subprocess.PIPE, shell=True)
+    subprocess.run(c, stdout=subprocess.PIPE, shell=True)
 
     return 'Hello {}!'.format(escape("Word"))
 
