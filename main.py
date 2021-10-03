@@ -1,5 +1,5 @@
 import scrapy
-from conferenceCalendar.afajofspiders import AfajofSpider
+from conferenceCalendar.spiders.afajofSpider import AfajofSpider
 from multiprocessing import Process, Queue
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
@@ -18,7 +18,7 @@ def my_cloud_function(event, context):
             queue.put(None)
         except Exception as e:
             queue.put(e)
-            
+
     queue = Queue()
     # wrap the spider in a child process
 
