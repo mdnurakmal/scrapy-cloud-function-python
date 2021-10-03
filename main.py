@@ -11,7 +11,7 @@ def hello_http(request):
     process.crawl(AfajofSpider)
     process.start()
 
-     c = 'gsutil cp $HOME/conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
+    c = 'gsutil cp $HOME/conferenceCalendar/afajof_calendar.xlsx gs://afajof_calendar'
 
     #print(os.environ['HOME'])
 
