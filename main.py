@@ -14,8 +14,8 @@ def hello_http(request):
     process.start()
 
     now = datetime.now().strftime("%m%d%Y_%H%M%S")
-
-    subprocess.call(["mv", os.environ['HOME']+"/scrapy-cloud-function-python/afajof_calendar.xlsx",os.environ['HOME']+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+    home = os.environ['HOME']
+    subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
 
     os.system("gsutil cp $HOME/scrapy-cloud-function-python/{0} gs://afajof_calendar".format("temp-"+now+".xlsx"))
