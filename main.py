@@ -54,5 +54,5 @@ def hello_http(request):
 
 
 if __name__ == "__main__":
-    hello_http(None,None)
+    hello_http(None)
 
