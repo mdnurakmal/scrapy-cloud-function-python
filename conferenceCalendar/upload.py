@@ -3,12 +3,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 import os
 
 def upload():
-    credentials_dict = {
-        }
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
-        credentials_dict
-    )
-    client = storage.Client(credentials=credentials, project='myproject')
-    bucket = client.get_bucket('mybucket')
-    blob = bucket.blob('myfile')
-    blob.upload_from_filename('myfile')
+    # Make an authenticated API request
+    buckets = list(storage_client.list_buckets())
+    print(buckets)
+    # bucket = client.get_bucket('afajof_calendar')
+    # blob = bucket.blob('myfile')
+    # blob.upload_from_filename('myfile')
