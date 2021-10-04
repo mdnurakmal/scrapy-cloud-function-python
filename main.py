@@ -1,7 +1,7 @@
 from conferenceCalendar.spiders.afajofspiders import AfajofSpider
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-
+from conferenceCalendar.upload import upload
 from datetime import datetime
 import shlex 
 import subprocess
@@ -43,11 +43,11 @@ def hello_http(request):
     now = datetime.now().strftime("%m%d%Y_%H%M%S")
     home = os.environ['HOME']
 
-    subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+    #subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
     return_dict["filename"]="temp-"+now+".xlsx"
-    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
-
+    #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
+    upload()
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
