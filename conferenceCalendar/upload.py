@@ -2,10 +2,11 @@ from google.cloud import storage
 from oauth2client.service_account import ServiceAccountCredentials
 import os
 
-def upload(myfile):
+def upload(myfile,destination):
     # Make an authenticated API request
-    client = storage.Client()
-    bucket = storage.Bucket(client, "afajof_calendar", user_project="test-327905")
 
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(afajof_calendar)
+
+    blob = bucket.blob(destination)
     blob.upload_from_filename(myfile)
-    
