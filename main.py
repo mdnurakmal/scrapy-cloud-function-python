@@ -47,7 +47,7 @@ def hello_http(request):
 
     return_dict["filename"]="temp-"+now+".xlsx"
     #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
-    upload()
+    upload(home+"/scrapy-cloud-function-python/afajof_calendar.xlsx")
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
