@@ -22,15 +22,7 @@ def hello_http(request):
             process.crawl(AfajofSpider)
             process.start()
 
-            
-            now = datetime.now().strftime("%m%d%Y_%H%M%S")
-            home = os.environ['HOME']
-
-            subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
-
-            return_dict["filename"]="temp-"+now+".xlsx"
-            os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
-
+         
             queue.put(None)
         except Exception as e:
             queue.put(e)
@@ -46,6 +38,16 @@ def hello_http(request):
 
     if result is not None:
         raise result
+
+       
+    now = datetime.now().strftime("%m%d%Y_%H%M%S")
+    home = os.environ['HOME']
+
+    subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+
+    return_dict["filename"]="temp-"+now+".xlsx"
+    os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
+
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
