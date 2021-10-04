@@ -4,8 +4,13 @@ import os
 
 def upload():
     # Make an authenticated API request
-    buckets = list(storage_client.list_buckets())
-    print(buckets)
+    client = storage.Client()
+    bucket = storage.Bucket(client, "afajof_calendar", user_project="test-327905")
+    all_blobs = list(client.list_blobs(bucket))
+
+
+    print(all_blobs)
+
     # bucket = client.get_bucket('afajof_calendar')
     # blob = bucket.blob('myfile')
     # blob.upload_from_filename('myfile')
