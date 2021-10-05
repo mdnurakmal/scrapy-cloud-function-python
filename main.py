@@ -48,14 +48,16 @@ def hello_http(request):
     main_process.join() # block until the spider finishes
     result = queue.get() # check the process did not return an error
 
-    if result is not None:
-        raise result
-
-
     root = path.dirname(path.abspath(__file__))
     children = os.listdir(root)
     files = [c for c in children if path.isfile(path.join(root, c))]
     print('Files: {}'.format(files))
+    
+    if result is not None:
+        raise result
+
+
+
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
