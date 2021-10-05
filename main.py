@@ -6,7 +6,7 @@ from datetime import datetime
 import shlex 
 import subprocess
 import os
-
+from os import path
 from multiprocessing import Process, Queue , Manager
 
 
@@ -47,6 +47,13 @@ def hello_http(request):
 
     return_dict["filename"]="temp-"+now+".xlsx"
     #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
+    
+
+    root = path.dirname(path.abspath(__file__))
+    children = os.listdir(root)
+    files = [c for c in children if path.isfile(path.join(root, c))]
+    print('Files: {}'.format(files))
+    
     upload("afajof_calendar.xlsx","temp-"+now+".xlsx")
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
