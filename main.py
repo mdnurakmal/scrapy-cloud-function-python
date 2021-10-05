@@ -49,6 +49,13 @@ def hello_http(request):
 
     result = queue.get() # check the process did not return an error
 
+    settings = get_project_settings()
+
+    process = CrawlerProcess(settings)
+    process.crawl(AfajofSpider)
+    process.start()
+
+
     root = path.dirname(path.abspath(__file__))
     children = os.listdir(root)
     files = [c for c in children if path.isfile(path.join(root, c))]
