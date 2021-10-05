@@ -32,7 +32,8 @@ def hello_http(request):
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
 
-            
+            print("heelo")
+    
             upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
 
             queue.put(None)
@@ -52,7 +53,7 @@ def hello_http(request):
     children = os.listdir(root)
     files = [c for c in children if path.isfile(path.join(root, c))]
     print('Files: {}'.format(files))
-    
+
     if result is not None:
         raise result
 
