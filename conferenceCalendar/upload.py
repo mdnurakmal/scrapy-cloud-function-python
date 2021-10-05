@@ -10,3 +10,5 @@ def upload(myfile,destination):
 
     blob = bucket.blob(destination)
     blob.upload_from_filename(myfile)
+    print("filename : " + myfile)
+    print("destination : " + destination)
