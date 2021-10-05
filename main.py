@@ -13,13 +13,7 @@ from multiprocessing import Process, Queue , Manager
 def hello_http(request):
     def script(queue,return_dict):
         try:
-            settings = get_project_settings()
 
-            process = CrawlerProcess(settings)
-            process.crawl(AfajofSpider)
-            process.start()
-
-                
             now = datetime.now().strftime("%m%d%Y_%H%M%S")
             home = os.environ['HOME']
 
@@ -29,9 +23,6 @@ def hello_http(request):
             return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
-
-            print("heelo")
-    
             upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
 
             queue.put(None)
