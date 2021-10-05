@@ -1,7 +1,7 @@
 from google.cloud import storage
 from oauth2client.service_account import ServiceAccountCredentials
 import os
-    from os import path
+from os import path
 def upload(myfile,destination):
     # Make an authenticated API request
     print("filename : " + myfile)
