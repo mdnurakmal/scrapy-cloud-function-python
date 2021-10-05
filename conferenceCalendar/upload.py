@@ -8,8 +8,8 @@ def upload(myfile,destination):
     print("destination : " + destination)
 
 
-    # storage_client = storage.Client()
-    # bucket = storage_client.bucket("afajof_calendar")
+    storage_client = storage.Client()
+    bucket = storage_client.bucket("afajof_calendar")
 
-    # blob = bucket.blob(destination)
-    # blob.upload_from_filename(myfile)
+    blob = bucket.blob(destination)
+    blob.upload_from_filename(myfile)
