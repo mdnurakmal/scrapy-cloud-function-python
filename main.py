@@ -14,10 +14,7 @@ def hello_http(request):
     def script(queue,return_dict):
         try:
             settings = get_project_settings()
-            settings.setdict({
-            'LOG_LEVEL': 'ERROR',
-            'LOG_ENABLED': True,
-            })
+
             process = CrawlerProcess(settings)
             process.crawl(AfajofSpider)
             process.start()
