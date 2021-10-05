@@ -20,7 +20,7 @@ def hello_http(request):
             process.crawl(AfajofSpider)
             process.start()
 
-            root = path.dirname(path.abspath(__file__))
+            root = path.dirname(path.abspath("/tmp"))
             children = os.listdir(root)
             files = [c for c in children if path.isfile(path.join(root, c))]
          
