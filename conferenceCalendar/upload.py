@@ -10,7 +10,7 @@ def upload(myfile,destination):
     root = path.dirname(path.abspath(__file__))
     children = os.listdir(root)
     files = [c for c in children if path.isfile(path.join(root, c))]
-    return 'Files: {}'.format(files)
+    print('Files: {}'.format(files))
 
     # storage_client = storage.Client()
     # bucket = storage_client.bucket("afajof_calendar")
