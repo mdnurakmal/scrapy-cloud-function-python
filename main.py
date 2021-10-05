@@ -29,6 +29,7 @@ def hello_http(request):
             #subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
 
             return_dict["filename"]="temp-"+now+".xlsx"
+            return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
 
@@ -54,6 +55,7 @@ def hello_http(request):
     files = [c for c in children if path.isfile(path.join(root, c))]
     print('Files: {}'.format(files))
 
+    print(">>>" + return_dict["temp"])
     if result is not None:
         raise result
 
