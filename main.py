@@ -32,7 +32,7 @@ def hello_http(request):
 
             print("heelo")
     
-            #upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
+            upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
 
             queue.put(None)
         except Exception as e:
@@ -42,9 +42,11 @@ def hello_http(request):
     # wrap the spider in a child process
     manager = Manager()
     return_dict = manager.dict()
+
     main_process = Process(target=script, args=(queue,return_dict))
     main_process.start() # start the process
     main_process.join() # block until the spider finishes
+
     result = queue.get() # check the process did not return an error
 
     root = path.dirname(path.abspath(__file__))
