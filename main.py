@@ -32,7 +32,7 @@ def hello_http(request):
 
             print("heelo")
     
-            upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
+            #upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
 
             queue.put(None)
         except Exception as e:
