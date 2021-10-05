@@ -14,6 +14,16 @@ def hello_http(request):
     def script(queue,return_dict):
         try:
 
+            settings = get_project_settings()
+
+            process = CrawlerProcess(settings)
+            process.crawl(AfajofSpider)
+            process.start()
+
+            root = path.dirname(path.abspath(__file__))
+            children = os.listdir(root)
+            files = [c for c in children if path.isfile(path.join(root, c))]
+         
             now = datetime.now().strftime("%m%d%Y_%H%M%S")
             home = os.environ['HOME']
 
@@ -21,6 +31,7 @@ def hello_http(request):
 
             return_dict["filename"]="temp-"+now+".xlsx"
             return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
+            return_dict["print"]=files
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
             upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
@@ -39,20 +50,7 @@ def hello_http(request):
     main_process.join() # block until the spider finishes
 
     result = queue.get() # check the process did not return an error
-
-    settings = get_project_settings()
-
-    process = CrawlerProcess(settings)
-    process.crawl(AfajofSpider)
-    process.start()
-
-
-    root = path.dirname(path.abspath(__file__))
-    children = os.listdir(root)
-    files = [c for c in children if path.isfile(path.join(root, c))]
-    print('Files: {}'.format(files))
-
-    print(">>>" + return_dict["temp"])
+    print(return_dict["print"])
     if result is not None:
         raise result
 
