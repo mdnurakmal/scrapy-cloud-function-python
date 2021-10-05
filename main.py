@@ -32,10 +32,6 @@ def hello_http(request):
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
 
-            root = path.dirname(path.abspath(__file__))
-            children = os.listdir(root)
-            files = [c for c in children if path.isfile(path.join(root, c))]
-            print('Files: {}'.format(files))
             
             upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
 
@@ -56,6 +52,10 @@ def hello_http(request):
         raise result
 
 
+    root = path.dirname(path.abspath(__file__))
+    children = os.listdir(root)
+    files = [c for c in children if path.isfile(path.join(root, c))]
+    print('Files: {}'.format(files))
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
