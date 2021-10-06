@@ -29,8 +29,8 @@ def script(queue,return_dict):
         #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
         
         #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
-
-        arr = os.listdir(os.path.abspath('/conferenceCalendar'))
+n
+        arr = os.listdir(os.path.abspath('.'))
         return_dict["print1"]=arr
 
 
