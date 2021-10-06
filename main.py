@@ -50,11 +50,11 @@ def hello_http(request):
     main_process.join() # block until the spider finishes
 
     result = queue.get() # check the process did not return an error
-    print(return_dict["print"])
+
     if result is not None:
         raise result
 
-
+    print(return_dict["print"])
 
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
