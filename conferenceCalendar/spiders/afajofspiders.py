@@ -6,7 +6,7 @@ class AfajofSpider(scrapy.Spider):
 
     custom_settings = {
         'FEED_FORMAT': 'xlsx',
-        'FEED_URI': 'afajof_calendar.xlsx'
+        'FEED_URI': '/home/mdnurakmal/akmal/afajof_calendar.xlsx'
     }
 
     def start_requests(self):
