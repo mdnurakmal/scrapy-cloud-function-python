@@ -20,12 +20,14 @@ def hello_http(request):
             process.crawl(AfajofSpider)
             process.start()
 
-            root = path.dirname(path.abspath("/tmp"))
-            children = os.listdir(root)
-            files = [c for c in children if path.isfile(path.join(root, c))]
+           
          
             now = datetime.now().strftime("%m%d%Y_%H%M%S")
             home = os.environ['HOME']
+
+            root = path.dirname(path.abspath(home))
+            children = os.listdir(root)
+            files = [c for c in children if path.isfile(path.join(root, c))]
 
             subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
