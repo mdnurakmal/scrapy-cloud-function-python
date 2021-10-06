@@ -34,7 +34,7 @@ def hello_http(request):
             return_dict["print"]=files
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
-            upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
+            #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
             queue.put(None)
         except Exception as e:
