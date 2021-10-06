@@ -21,7 +21,7 @@ def script(queue,return_dict):
         now = datetime.now().strftime("%m%d%Y_%H%M%S")
         home = os.environ['HOME']
         cwd = os.getcwd()
-        arr = os.listdir('/tmp/usercode/scrapy-cloud-function-python/conferenceCalendar')
+        #arr = os.listdir('/tmp/usercode/scrapy-cloud-function-python/conferenceCalendar')
         return_dict["print"]=cwd
         #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
@@ -32,7 +32,7 @@ def script(queue,return_dict):
         
         #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
-        arr = os.listdir(os.path.abspath('.'))
+        #arr = os.listdir(os.path.abspath('.'))
         return_dict["print1"]=home
 
 
