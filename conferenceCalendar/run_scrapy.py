@@ -21,8 +21,8 @@ def script(queue,return_dict):
         now = datetime.now().strftime("%m%d%Y_%H%M%S")
         home = os.environ['HOME']
         cwd = os.getcwd()
-        #arr = os.listdir('/tmp/usercode/scrapy-cloud-function-python/conferenceCalendar')
-        return_dict["print"]=cwd
+        arr = os.listdir('/user_code/conferenceCalendar')
+        return_dict["print"]=arr
         #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
         return_dict["filename"]="temp-"+now+".xlsx"
