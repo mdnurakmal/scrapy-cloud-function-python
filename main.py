@@ -27,14 +27,14 @@ def hello_http(request):
             now = datetime.now().strftime("%m%d%Y_%H%M%S")
             home = os.environ['HOME']
 
-            #subprocess.call(["mv", home+"/scrapy-cloud-function-python/afajof_calendar.xlsx",home+"/scrapy-cloud-function-python/"+"temp-"+now+".xlsx"])
+            subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
             return_dict["filename"]="temp-"+now+".xlsx"
             return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
             return_dict["print"]=files
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
-            upload("./afajof_calendar.xlsx","temp-"+now+".xlsx")
+            upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
             queue.put(None)
         except Exception as e:
