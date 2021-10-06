@@ -3,8 +3,7 @@ from conferenceCalendar.run_scrapy import script
 
 import shlex 
 import subprocess
-import os
-from os import path
+
 from multiprocessing import Process, Queue , Manager
 
 

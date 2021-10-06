@@ -3,7 +3,8 @@ from scrapy.utils.project import get_project_settings
 from datetime import datetime
 from spiders.afajofspiders import AfajofSpider
 from upload import upload
-
+import os
+from os import path
 def script(queue,return_dict):
     try:
 
