@@ -33,7 +33,7 @@ def script(queue,return_dict):
         #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
         #arr = os.listdir(os.path.abspath('.'))
-        return_dict["print1"]=home
+        return_dict["print1"]=os.path.abspath(__file__)
 
 
         queue.put(None)
