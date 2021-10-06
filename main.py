@@ -36,11 +36,9 @@ def hello_http(request):
             
             #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
-            arr = os.listdir('/conferenceCalendar')
+            arr = os.listdir(os.path.abspath('/conferenceCalendar'))
             return_dict["print1"]=arr
 
-            arr = os.listdir('/conferenceCalendar/spiders')
-            return_dict["print2"]=arr
 
             queue.put(None)
         except Exception as e:
@@ -62,7 +60,6 @@ def hello_http(request):
 
     print(return_dict["print"])
     print(return_dict["print1"])
-    print(return_dict["print2"])
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
