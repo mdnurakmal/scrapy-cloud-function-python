@@ -2,7 +2,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from datetime import datetime
 from conferenceCalendar.spiders.afajofspiders import AfajofSpider
-from upload import upload
+from conferenceCalendar.upload import upload
 import os
 from os import path
 def script(queue,return_dict):
