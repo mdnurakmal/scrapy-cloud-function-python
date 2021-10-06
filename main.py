@@ -1,7 +1,7 @@
-from spiders.afajofspiders import AfajofSpider
+from conferenceCalendar.spiders.afajofspiders import AfajofSpider
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from upload import upload
+from conferenceCalendar.upload import upload
 from datetime import datetime
 import shlex 
 import subprocess
