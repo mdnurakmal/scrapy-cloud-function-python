@@ -25,12 +25,13 @@ def hello_http(request):
             now = datetime.now().strftime("%m%d%Y_%H%M%S")
             home = os.environ['HOME']
             cwd = os.getcwd()
- 
-            subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
+            arr = os.listdir('.')
 
-            return_dict["filename"]="temp-"+now+".xlsx"
-            return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
-            return_dict["print"]=cwd
+            #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
+
+            #return_dict["filename"]="temp-"+now+".xlsx"
+            #return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
+            return_dict["print"]=arr
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
             #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
