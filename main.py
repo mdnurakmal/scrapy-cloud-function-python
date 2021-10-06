@@ -29,7 +29,7 @@ def hello_http(request):
 
             #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
-            #return_dict["filename"]="temp-"+now+".xlsx"
+            return_dict["filename"]="temp-"+now+".xlsx"
             #return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
             return_dict["print"]=arr
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
