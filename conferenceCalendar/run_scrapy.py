@@ -8,6 +8,8 @@ from os import path
 def script(queue,return_dict):
     try:
 
+        settings_file_path = 'conferenceCalendar.settings' # The path seen from root, ie. from main.py
+        os.environ.setdefault('SCRAPY_SETTINGS_MODULE', settings_file_path)
         settings = get_project_settings()
 
         process = CrawlerProcess(settings)
