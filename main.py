@@ -26,15 +26,21 @@ def hello_http(request):
             home = os.environ['HOME']
             cwd = os.getcwd()
             arr = os.listdir('.')
-
+            return_dict["print"]=arr
             #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
 
             return_dict["filename"]="temp-"+now+".xlsx"
             #return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
-            return_dict["print"]=arr
+         
             #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
             
             #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
+
+            arr = os.listdir('/conferenceCalendar')
+            return_dict["print1"]=arr
+
+            arr = os.listdir('/conferenceCalendar/spiders')
+            return_dict["print2"]=arr
 
             queue.put(None)
         except Exception as e:
@@ -55,7 +61,8 @@ def hello_http(request):
         raise result
 
     print(return_dict["print"])
-
+    print(return_dict["print1"])
+    print(return_dict["print2"])
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
 
