@@ -31,8 +31,8 @@ def script(queue,return_dict):
         
         #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
 
-        #arr = os.listdir(os.path.abspath('.'))
-        return_dict["print1"]=os.path.abspath(__file__)
+        arr = os.listdir(os.path.abspath('.'))
+        return_dict["print1"]=arr
 
 
         queue.put(None)
