@@ -12,24 +12,15 @@ def script(queue,return_dict):
         os.environ.setdefault('SCRAPY_SETTINGS_MODULE', settings_file_path)
         settings = get_project_settings()
 
+        now = datetime.now().strftime("%m%d%Y_%H%M%S")
+
+        return_dict["filename"]="temp-"+now+".xlsx"
+
         process = CrawlerProcess(settings)
         process.crawl(AfajofSpider)
         process.start()
 
-        
-        
-        now = datetime.now().strftime("%m%d%Y_%H%M%S")
-        home = os.environ['HOME']
-        cwd = os.getcwd()
-
-        #subprocess.call(["mv", "/tmp/afajof_calendar.xlsx","/tmp/temp-"+now+".xlsx"])
-
-        return_dict["filename"]="temp-"+now+".xlsx"
-        #return_dict["temp"]=home+"/scrapy-cloud-function-python/afajof_calendar.xlsx"
-        
-        #os.system("gsutil cp $HOME/scrapy-cloud-function-python/{filename} gs://afajof_calendar/{filename}".format(filename="temp-"+now+".xlsx"))
-        
-        #upload("/tmp/temp-"+now+".xlsx"],"temp-"+now+".xlsx")
+        upload("/tmp/afajof_calendar.xlsx"],"temp-"+now+".xlsx")
 
         arr = os.listdir('/tmp')
         return_dict["print1"]=arr
