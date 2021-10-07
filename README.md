@@ -1,7 +1,8 @@
 # scrapy-cloud-function-python
 
-cloud function directory
+Cloud function directory
 /user_code
 /workspace
 
-scrappy need to be run in a child process
+- Scrappy need to be run in a child process
+- The only writeable part of the filesystem is the /tmp directory, 
