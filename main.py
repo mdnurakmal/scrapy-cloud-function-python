@@ -22,7 +22,7 @@ def hello_http(request):
     if result is not None:
         raise result
 
-    print(return_dict["print"])
+
     print(return_dict["print1"])
 
     return 'https://storage.cloud.google.com/afajof_calendar/' + return_dict["filename"]
