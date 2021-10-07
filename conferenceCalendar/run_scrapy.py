@@ -20,7 +20,7 @@ def script(queue,return_dict):
         process.crawl(AfajofSpider)
         process.start()
 
-        upload("/tmp/afajof_calendar.xlsx"],"temp-"+now+".xlsx")
+        upload("/tmp/afajof_calendar.xlsx","temp-"+now+".xlsx")
 
         arr = os.listdir('/tmp')
         return_dict["print1"]=arr

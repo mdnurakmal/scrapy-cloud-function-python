@@ -1,5 +1,14 @@
 # scrapy-cloud-function-python
 
+# Usage
+
+Link repo to cloud source repository in GCP
+Create build trigger from push event using cloud build configuration
+Cloud build will automatically deploy cloud function
+
+
+# Learning notes
+
 Cloud function directory
 /user_code
 /workspace
